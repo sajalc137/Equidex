@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1 class="text-4xl font-bold mb-6">Welcome to Equidex!</h1>
+    
+    <p class="text-lg text-gray-700 mb-6">Enter a stock ticker below to get equity information and financial ratios.</p>
+    
+    <form class="flex items-center" action="{% url 'results' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="ticker" placeholder="Enter stock ticker" class="px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Search</button>
+    </form>
+
+    <p class="text-sm text-gray-500 mt-4">Example stock tickers: INFY, ONGC, SBIN, TCS</p>
+
+{% endblock %}
